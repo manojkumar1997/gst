@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BILLING APP</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+  
+  .dataHead{
+	  width:150px;
+	  text-align:center;
+	  font-weight:bold;
+	  font-size:14px;
+  }
+  .dataCell{
+	  text-align:left;
+	  font-weight:normal;
+	  font-size:12px;
+  }
+    #headName{
+		width:500px;
+		padding-top:20px;
+		padding-bottom:10px;
+		text-align:center;
+		position:relative;
+	}
+  
+  </style>
+  <script>
+  var prtName;
+  var prtPrice;
+  var prtGST;
+  var tt=0;
+  
+  function addNewProduct(){
+  prtName = document.getElementById('product_name').value;
+  prtPrice= document.getElementById('product_price').value;
+  prtGST = document.getElementById('product_gst').value;
+  tableData = document.getElementById('dataTable');
+	  
+	  if(prtName!="" && prtPrice!="" && prtGST!=""){
+		var tableRef = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+		var newRow   = tableRef.insertRow(1);
+		newRow.innerHTML = '<tr><td>'+(tableRef.rows.length-1)+'</td><td>'+prtName+'</td><td>'+prtPrice+'</td><td>'+prtGST+'</td></tr>';
+	  }  
+  }
+  function cal()
+  {
+  tt=prtprice+(prtprice*prtGST*0.001);
+  return window.alert(tt);
+  }
+  
+  
+  
+  
+  
+  </script>
+  
+  
+</head>
+<body>
+  <app-root></app-root>
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script>
+
+<div id="headName">Add Product</div>
+<div id="addForm">
+
+<div> 
+	
+	
+	<table > <tr>
+	<td>
+	Product Name
+	</td><td>Product Price</td><td>Product GST</td><td></td>
+	</tr>
+	<tr>
+		<td>
+			<input class="product" type="text" id="product_name" value="" /> 
+		</td>
+		<td>
+			<input class="product" type="number" id="product_price" value="" />
+		</td>
+		<td>
+			<input class="product" type="number" id="product_gst" value="" /> 
+
+		</td>
+		<td>
+			<input class="submit" type="button" value="add" onclick="addNewProduct()" id="submit_btn"  /> 
+		</td>
+	</tr></table>
+<input class="submit" type="button" value="submit" onclick="cal()" id="submit_btn"/>
+</div>
+<div id="headName">Product List</div>
+<div id="data_table" style="height:500px;overflow-y:scroll;">
+<div >
+<table border="1" id="dataTable" >
+<tr><td class="dataHead" style="width:70px">S No</td><td class="dataHead">Product Name</td><td class="dataHead">Product Price</td><td class="dataHead">Product GST</td></tr>
+<tr><td class="dataCell">3</td><td class="dataCell">PRODUCT 3</td><td class="dataCell">123.0</td><td class="dataCell">9%</td></tr>
+<tr><td class="dataCell">2</td><td class="dataCell">PRODUCT 2</td><td class="dataCell">123.0</td><td class="dataCell">9%</td></tr>
+<tr><td class="dataCell">1</td><td class="dataCell">PRODUCT 1</td><td class="dataCell">123.0</td><td class="dataCell">9%</td></tr>
+
+</table>
+
+
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>
